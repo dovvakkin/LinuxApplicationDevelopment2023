@@ -1,0 +1,41 @@
+# English translations for  08_I18n package.
+# Copyright (C) 2023 THE  08_I18n'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the  08_I18n package.
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  08_I18n\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-13 23:37+0300\n"
+"PO-Revision-Date: 2023-11-13 23:37+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: /Users/dovvakkin/git/LinuxApplicationDevelopment2023/08_I18n/guesser.c:14
+#, c-format
+msgid "Pick a number between %d and %d. I will try to guess it [press ENTER]"
+msgstr "Pick a number between %d and %d. I will try to guess it [press ENTER]"
+
+#: /Users/dovvakkin/git/LinuxApplicationDevelopment2023/08_I18n/guesser.c:21
+#, c-format
+msgid "Is your number greater than %d ? y/n: "
+msgstr "Is your number greater than %d ? y/n: "
+
+#: /Users/dovvakkin/git/LinuxApplicationDevelopment2023/08_I18n/guesser.c:24
+msgid "y"
+msgstr "y"
+
+#: /Users/dovvakkin/git/LinuxApplicationDevelopment2023/08_I18n/guesser.c:27
+msgid "n"
+msgstr "n"
+
+#: /Users/dovvakkin/git/LinuxApplicationDevelopment2023/08_I18n/guesser.c:48
+#, c-format
+msgid "You picked number %d\n"
+msgstr "You picked number %d\n"

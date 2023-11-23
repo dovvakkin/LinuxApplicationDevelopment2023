@@ -1,0 +1,42 @@
+--- _backup/lbrnt_walls_size.c	2023-11-23 15:32:35
++++ _backup/lbrnt_stable_random_walls_size.c	2023-11-23 15:33:00
+@@ -63,24 +63,25 @@
+ void usage(char *argv[]) {
+     fprintf(stderr,
+             "%s PATH_WALL LABIRINT_SIZE\n"
++            "SEED - seed for stable random\n"
+             "PATH_WALL - string of 2 chars, first for path, second for wall in labirint\n"
+             "LABIRINT_SIZE >= 2\n",
+             argv[0]);
+ }
+ 
+ int main(int argc, char *argv[]) {
+-    if (argc != 3) {
++    if (argc != 4) {
+         usage(argv);
+         exit(1);
+     }
+-    if (strlen(argv[1]) != 2) {
++    if (strlen(argv[2]) != 2) {
+         fprintf(stderr, "bad PATH_WALL length\n");
+         usage(argv);
+         exit(1);
+     }
+-    const char path = argv[1][0];
+-    const char wall = argv[1][1];
+-    const int lbrnt_size = atoi(argv[2]);
++    const char path = argv[2][0];
++    const char wall = argv[2][1];
++    const int lbrnt_size = atoi(argv[3]);
+     if (lbrnt_size < 2) {
+         fprintf(stderr, "bad labirint size\n");
+         usage(argv);
+@@ -89,7 +90,7 @@
+ 
+     lbrnt l = make_empty_lbrnt(lbrnt_size, path, wall);
+ 
+-    srand(time(NULL));
++    srand(atoi(argv[1]));
+     put_random_wall(l);
+ 
+     print_lbrnt(l);

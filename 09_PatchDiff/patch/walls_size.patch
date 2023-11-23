@@ -1,0 +1,94 @@
+--- _backup/lbrnt_size.c	2023-11-23 15:32:35
++++ _backup/lbrnt_walls_size.c	2023-11-23 15:32:35
+@@ -1,35 +1,37 @@
+ #include <stdbool.h>
+ #include <stdio.h>
+ #include <stdlib.h>
++#include <string.h>
+ #include <time.h>
+ 
+-#include <stdlib.h>
+-#include <time.h>
+-
+ typedef struct {
+     char *data;
+     int size;
+     int wall_length;
++    char path;
++    char wall;
+ } lbrnt;
+ 
+-lbrnt make_empty_lbrnt(int size) {
++lbrnt make_empty_lbrnt(int size, char path, char wall) {
+     lbrnt l;
+     l.size = size;
+     l.wall_length = size * 2 + 1;
+     l.data = (char *)malloc(sizeof(char) * l.wall_length * l.wall_length);
++    l.path = path;
++    l.wall = wall;
+ 
+     for (int i = 0; i < l.wall_length; i++) {
+         for (int j = 0; j < l.wall_length; j++) {
+             const int current_idx = i * l.wall_length + j;
+             if (i == 0 || i == l.wall_length - 1 || j == 0 || j == l.wall_length - 1) {
+-                l.data[current_idx] = '#';
++                l.data[current_idx] = l.wall;
+                 continue;
+             }
+             if ((i + 1) % 2 == 0 || (j + 1) % 2 == 0) {
+-                l.data[current_idx] = '.';
++                l.data[current_idx] = l.path;
+                 continue;
+             }
+-            l.data[current_idx] = '#';
++            l.data[current_idx] = l.wall;
+         }
+     }
+ 
+@@ -52,29 +54,40 @@
+     const int i = (1 + (rand() % (l.size - 1))) * 2 - 1;
+     const int j = (1 + (rand() % (l.size - 1))) * 2;
+     if (vertical_wall) {
+-        l.data[i * l.wall_length + j] = '#';
++        l.data[i * l.wall_length + j] = l.wall;
+         return;
+     }
+-    l.data[j * l.wall_length + i] = '#';
++    l.data[j * l.wall_length + i] = l.wall;
+ }
+ 
+ void usage(char *argv[]) {
+-    fprintf(stderr, "%s LABIRINT_SIZE\nLABIRINT_SIZE >= 2\n", argv[0]);
++    fprintf(stderr,
++            "%s PATH_WALL LABIRINT_SIZE\n"
++            "PATH_WALL - string of 2 chars, first for path, second for wall in labirint\n"
++            "LABIRINT_SIZE >= 2\n",
++            argv[0]);
+ }
+ 
+ int main(int argc, char *argv[]) {
+-    if (argc != 2) {
++    if (argc != 3) {
+         usage(argv);
+         exit(1);
+     }
+-    const int lbrnt_size = atoi(argv[1]);
++    if (strlen(argv[1]) != 2) {
++        fprintf(stderr, "bad PATH_WALL length\n");
++        usage(argv);
++        exit(1);
++    }
++    const char path = argv[1][0];
++    const char wall = argv[1][1];
++    const int lbrnt_size = atoi(argv[2]);
+     if (lbrnt_size < 2) {
+         fprintf(stderr, "bad labirint size\n");
+         usage(argv);
+         exit(1);
+     }
+ 
+-    lbrnt l = make_empty_lbrnt(lbrnt_size);
++    lbrnt l = make_empty_lbrnt(lbrnt_size, path, wall);
+ 
+     srand(time(NULL));
+     put_random_wall(l);

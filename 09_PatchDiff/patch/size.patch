@@ -1,0 +1,29 @@
+--- lbrnt.c	2023-11-23 13:59:08
++++ _backup/lbrnt_size.c	2023-11-23 15:32:35
+@@ -58,9 +58,24 @@
+     l.data[j * l.wall_length + i] = '#';
+ }
+ 
+-int main() {
+-    lbrnt l = make_empty_lbrnt(6);
++void usage(char *argv[]) {
++    fprintf(stderr, "%s LABIRINT_SIZE\nLABIRINT_SIZE >= 2\n", argv[0]);
++}
+ 
++int main(int argc, char *argv[]) {
++    if (argc != 2) {
++        usage(argv);
++        exit(1);
++    }
++    const int lbrnt_size = atoi(argv[1]);
++    if (lbrnt_size < 2) {
++        fprintf(stderr, "bad labirint size\n");
++        usage(argv);
++        exit(1);
++    }
++
++    lbrnt l = make_empty_lbrnt(lbrnt_size);
++
+     srand(time(NULL));
+     put_random_wall(l);
+ 

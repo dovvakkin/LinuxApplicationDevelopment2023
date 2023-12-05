@@ -1,0 +1,62 @@
+# English translations for  08_I18n package.
+# Copyright (C) 2023 THE  08_I18n'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the  08_I18n package.
+# Automatically generated, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version:  08_I18n\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-12-05 21:22+0300\n"
+"PO-Revision-Date: 2023-11-13 23:37+0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_EN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:44
+#, c-format
+msgid "Pick a number between %s and %s. I will try to guess it [press ENTER]"
+msgstr "Pick a number between %s and %s. I will try to guess it [press ENTER]"
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:55
+#, c-format
+msgid "Is your number greater than %s ? y/n: "
+msgstr "Is your number greater than %s ? y/n: "
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:58
+msgid "y"
+msgstr "y"
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:62
+msgid "n"
+msgstr "n"
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:86
+#, c-format
+msgid "You picked number %s\n"
+msgstr "You picked number %s\n"
+
+#: /home/dovvakkin/cmc/11_Documenting/guesser.c:92
+#, c-format
+msgid ""
+"Guesser will use binary search to guess your random number from given "
+"interval\n"
+"\n"
+"Usage: guesser [OPTION]\n"
+"\n"
+"Options:\n"
+"  -h, --help     display this help and exit\n"
+"  -r, --roman    use roman numbers instead of arabic\n"
+msgstr ""
+"Guesser will use binary search to guess your random number from given "
+"interval\n"
+"\n"
+"Usage: guesser [OPTION]\n"
+"\n"
+"Options:\n"
+"  -h, --help     display this help and exit\n"
+"  -r, --roman    use roman numbers instead of arabic\n"
